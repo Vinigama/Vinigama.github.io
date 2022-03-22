@@ -82,6 +82,11 @@ languageName ="Norsk"
 contentDir = "content/no"
 time_format_default = "02.01.2006"
 time_format_blog = "02.01.2006"
+[languages.pt]
+title = "IF-Study"
+description = "Repositorio de documentações do projeto"
+languageName ="Português"
+contentDir = "content/pt"
 
 [languages.fa]
 title = "اسناد گلدی"
