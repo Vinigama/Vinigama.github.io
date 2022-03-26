@@ -1,1 +1,24 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IF-Study – Conceitos</title><link>https://vinigama.github.io/pt/docs/conceitos/</link><description>Recent content in Conceitos on IF-Study</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://vinigama.github.io/pt/docs/conceitos/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IF-Study – Conceitos</title><link>https://vinigama.github.io/pt/docs/conceitos/</link><description>Recent content in Conceitos on IF-Study</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://vinigama.github.io/pt/docs/conceitos/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Configuração do VS Code</title><link>https://vinigama.github.io/pt/docs/conceitos/admin_editable/</link><pubDate>Mon, 21 Mar 2022 00:00:00 +0000</pubDate><guid>https://vinigama.github.io/pt/docs/conceitos/admin_editable/</guid><description>
+&lt;div class="pageinfo pageinfo-primary">
+&lt;p>A funcionalidade do &lt;strong>Admin Editable&lt;/strong> foi criada para facilitar o trabalho com itens que devem ser editáveis para o &lt;strong>Administrador do sistema&lt;/strong>.&lt;/p>
+&lt;/div>
+&lt;h1 id="conceito-geral">Conceito Geral&lt;/h1>
+&lt;p>A ideia do &lt;strong>Admin Editable&lt;/strong> é abstrair o máximo possível a criação de elementos editáveis pelo administrador. A solução alcança este objetivo ao vincular este elemento, representado na tela, ao seu equivalente na tela de administração do Django.&lt;/p>
+&lt;p>Por padrão, a solução criará automaticamente um botão no canto superior direito do componente onde ele é aplicado. Este comportamento padrão é possível com a criação de uma &lt;code>div&lt;/code> wrapper que será pai do componente, logo o botão criado e o componente são irmãos na árvore do DOM.&lt;/p>
+&lt;p>Este comportamento padrão pode ser sobrescrito ao utilizar o atributo HTML: &lt;code>data-editable-custom-button=&amp;quot;true&amp;quot;&lt;/code>. Todavia o comportamento ainda não se encontra implementado e deve ser implementado no arquivo &lt;strong>admin-editable.js&lt;/strong> do projeto.&lt;/p>
+&lt;h1 id="utilização">Utilização&lt;/h1>
+&lt;p>Para ativação da solução, é necessária a importação do modulo onde ela está presente por meio da linha:&lt;/p>
+&lt;pre tabindex="0">&lt;code>{% load admin_utils %}
+&lt;/code>&lt;/pre>&lt;p>Então dentro da tag HTML que possui o componente editável, deve ser adicionada a linha com o seguinte esquema:&lt;/p>
+&lt;pre tabindex="0">&lt;code>{% admin_editable user.is_superuser &amp;#34;&amp;lt;nome do app&amp;gt;&amp;#34; &amp;#34;&amp;lt;nome do model&amp;gt;&amp;#34; &amp;lt;id no model&amp;gt; %}
+&lt;/code>&lt;/pre>&lt;p>Segue um exemplo de implementação utilizado no arquivo &lt;strong>secoes.html&lt;/strong> do projeto:&lt;/p>
+&lt;pre tabindex="0">&lt;code>{% admin_editable user.is_superuser &amp;#34;conteudos&amp;#34; &amp;#34;secao&amp;#34; secao.id %}
+&lt;/code>&lt;/pre>&lt;h1 id="sobrescrevendo-o-comportamento-padrão">Sobrescrevendo o comportamento padrão&lt;/h1>
+&lt;p>É possível sobrescrever o comportamento relacionado ao posicionamento do botão no elemento. Os atributos utilizados para isso são:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;code>data-edit-button-right&lt;/code>&lt;/strong> - Equivalente à propriedade right do CSS. Deve ser uma valor inteiro. Ex: &lt;code>data-edit-button-right=&amp;quot;15&amp;quot;&lt;/code>&lt;/li>
+&lt;li>&lt;strong>&lt;code>data-edit-button-left&lt;/code>&lt;/strong> - Equivalente à propriedade left do CSS. Deve ser uma valor inteiro. Ex: &lt;code>data-edit-button-left=&amp;quot;15&amp;quot;&lt;/code>&lt;/li>
+&lt;li>&lt;strong>&lt;code>data-edit-button-top&lt;/code>&lt;/strong> - Equivalente à propriedade top do CSS. Deve ser uma valor inteiro. Ex: &lt;code>data-edit-button-top=&amp;quot;15&amp;quot;&lt;/code>&lt;/li>
+&lt;li>&lt;strong>&lt;code>data-edit-button-bottom&lt;/code>&lt;/strong> - Equivalente à propriedade bottom do CSS. Deve ser uma valor inteiro. Ex: &lt;code>data-edit-button-bottom=&amp;quot;15&amp;quot;&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Também é possível utilizar o atributo &lt;code>data-editable-custom-button=&amp;quot;true&amp;quot;&lt;/code> para cancelar o comportamento padrão e tornar possível a implementação de um botão personalizado. Para isso, um botão com a classe &lt;code>button-editable&lt;/code> deve ser colocado dentro deste componente com &lt;code>display: none&lt;/code> no CSS.&lt;/p></description></item></channel></rss>
