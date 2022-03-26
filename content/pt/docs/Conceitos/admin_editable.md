@@ -1,5 +1,5 @@
 ---
-title: "Configuração do VS Code"
+title: "Admin Editable - Itens Editáveis por Administrador"
 date: 2022-03-21
 weight: 1
 description: >
