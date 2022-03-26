@@ -9,7 +9,7 @@ description: >
 ---
 
 {{% pageinfo %}}
-This is a placeholder page that shows you how to use this template site.
+Esta página ainda não foi criada. Seria um exercício interessante criá-la. Sinta-se à vontade para criar um passo a passo sobre como instalar o projeto para execução no ambiente local.
 {{% /pageinfo %}}
 
 Information in this section helps your user try your project themselves.
