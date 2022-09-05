@@ -1,4 +1,36 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IF-Study – Conceitos</title><link>https://vinigama.github.io/pt/docs/conceitos/</link><description>Recent content in Conceitos on IF-Study</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://vinigama.github.io/pt/docs/conceitos/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Admin Editable - Itens Editáveis por Administrador</title><link>https://vinigama.github.io/pt/docs/conceitos/admin_editable/</link><pubDate>Mon, 21 Mar 2022 00:00:00 +0000</pubDate><guid>https://vinigama.github.io/pt/docs/conceitos/admin_editable/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IF-Study – Conceitos</title><link>https://vinigama.github.io/pt/docs/conceitos/</link><description>Recent content in Conceitos on IF-Study</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://vinigama.github.io/pt/docs/conceitos/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Seção Comentário</title><link>https://vinigama.github.io/pt/docs/conceitos/aba_comentario/</link><pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate><guid>https://vinigama.github.io/pt/docs/conceitos/aba_comentario/</guid><description>
+&lt;div class="pageinfo pageinfo-primary">
+&lt;p>A seção &lt;strong>Comentário&lt;/strong> na exibição do conteúdo foi criada para que o criador do conteúdo e os alunos possam utilizar esse meio como uma interação.&lt;/p>
+&lt;/div>
+&lt;h1 id="conceito-geral">Conceito Geral&lt;/h1>
+&lt;p>O objetivo da aba comentários na exibição do conteúdo é trazer uma interação relacionado ao conteúdo. Todos os espectadores podem fazer comentários e também responder outros comentários. O espectador que criar comentário pode apagar o seu próprio comentário e também pode sinalizar e atribuir &lt;code>like/dislike&lt;/code> nos outros comentários.&lt;/p>
+&lt;p>Logo abaixo da exibição do conteúdo, irá ter uma barra de comentários e um botão enviar desativado, quando o espectador digitar algo na barra de comentários o botão ficará ativado. O comentário digitado precisa possuir no mínimo 1 caractere e no máximo 255 caractere, se o comentário não atingir o tamanho proposto é exibido um alerta.&lt;/p>
+&lt;h1 id="benefícios">Benefícios&lt;/h1>
+&lt;p>Benefícios de deixar comentários em outros vídeos:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Você se estabelece como um especialista.&lt;/strong> Se seus comentários forem bem escritos e cheios de informações úteis, outras pessoas tomarão nota do seu conhecimento e talvez pedirão mais conselhos.&lt;/li>
+&lt;li>&lt;strong>Você se conecta com novas pessoas.&lt;/strong> Comentar vídeos é uma maneira gratuita e rápida de fazer com que sua voz seja ouvida por um novo público.&lt;/li>
+&lt;li>&lt;strong>Você aumentará suas visualizações de vídeo e visualizações de perfil.&lt;/strong> Se você disser algo interessante e único, outros espectadores clicarão em seu perfil, consumirão seus conteúdos.&lt;/li>
+&lt;/ul>
+&lt;h1 id="funções">Funções&lt;/h1>
+&lt;p>Para construir a seção comentário, foi necessário as seguintes funções:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>$(&amp;quot;#input-comentario&amp;quot;).keyup(function()})&lt;/strong> - Funcionalidade para ativar o botão enviar quando um caractere for digitado no &lt;code>input text&lt;/code> comentário;&lt;/li>
+&lt;li>&lt;strong>function adicionarComentario(comentario, usuario, comentarioId)}&lt;/strong> - Função para adicionar um card comentário contendo o nome do usuário e comentário dinamicamente dentro da &lt;code>div secao-comentario&lt;/code>;&lt;/li>
+&lt;li>&lt;strong>function alertaComentario(text)&lt;/strong> - Exibi um modal de alerta com text de acordo que passar como parâmetro;&lt;/li>
+&lt;li>&lt;strong>$( &amp;ldquo;#enviar_comentario&amp;rdquo; ).click(function()});&lt;/strong> - Funcionalidade que envia para o banco de dados o comentário via &lt;code>AJAX&lt;/code>. Essa funcionalidade possui restrições de caracteres, o tamanho de caracteres que ser maior que 1 e menor que 255, se não atingir encaixar no tamanho proposto é chamado a &lt;code>function alertaComentario(text)&lt;/code>;&lt;/li>
+&lt;li>&lt;strong>function likeComentario(elem)&lt;/strong> - Função para vincular o usuário que clicou no &lt;code>button like&lt;/code> com o comentário via AJAX;&lt;/li>
+&lt;li>&lt;strong>function dislikeComentario(elem)&lt;/strong> - Função para vincular o usuário que clicou no &lt;code>button dislike&lt;/code> com o comentário via AJAX;&lt;/li>
+&lt;li>&lt;strong>function dinamicoDislike(botaoLike, botaoDislike, quantidadeLike, quantidadeDislike)&lt;/strong> - Funcionalidade para alterar o visual do botão &lt;code>dislike&lt;/code> quando for clicado, para sinalizar que o usuário está vinculado com o botão. Outra funcionalidade da função é a quantidade de &lt;code>dislike&lt;/code> que é alterado quando houver contato com o &lt;code>button&lt;/code>&lt;/li>
+&lt;li>&lt;strong>function dinamicoLike(botaoLike, botaoDislike, quantidadeLike, quantidadeDislike)&lt;/strong> - Funcionalidade para alterar o visual do botão &lt;code>like&lt;/code> quando for clicado, para sinalizar que o usuário está vinculado com o botão. Outra funcionalidade da função é a quantidade de &lt;code>like&lt;/code> que é alterado quando houver contato com o &lt;code>button&lt;/code>;&lt;/li>
+&lt;li>&lt;strong>function enviarResposta(elem)&lt;/strong> - Função para adicionar resposta ao comentário;&lt;/li>
+&lt;li>&lt;strong>function adicionarResposta(elem, comentario, usuario, comentarioId)&lt;/strong> - Função para adicionar um card resposta contendo o nome do usuário e a resposta;&lt;/li>
+&lt;li>&lt;strong>function responder(elem)&lt;/strong> - Quando o usuário clicar no &lt;code>responder&lt;/code> em um comentário é exibido o &lt;code>input text resposta&lt;/code>&lt;/li>
+&lt;li>&lt;strong>function ajaxSend(data, url)&lt;/strong> - Requisição AJAX. Essa funcionalidade é composta pela função AJAX do Jquery para fazer requisições assíncronas;&lt;/li>
+&lt;li>&lt;strong>function deletarComentario(elem, id)&lt;/strong> - Função para deletar o comentário. Quando o usuário clicar no botão deletar é exibido um &lt;code>modal&lt;/code>, confirmando se realmente ele quer deletar, quando ele clicar em sim, o &lt;code>card&lt;/code> comentário é removido dinamicamente;&lt;/li>
+&lt;li>&lt;strong>function accordionResposta(elem)&lt;/strong> - Função que atualiza a quantidade de respostas que está atrelado com o comentário;&lt;/li>
+&lt;li>&lt;strong>function htmlEncode(str)&lt;/strong> - Funcionalidade que transforma um script para text, evitando ataque XSS;&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Admin Editable - Itens Editáveis por Administrador</title><link>https://vinigama.github.io/pt/docs/conceitos/admin_editable/</link><pubDate>Mon, 21 Mar 2022 00:00:00 +0000</pubDate><guid>https://vinigama.github.io/pt/docs/conceitos/admin_editable/</guid><description>
 &lt;div class="pageinfo pageinfo-primary">
 &lt;p>A funcionalidade do &lt;strong>Admin Editable&lt;/strong> foi criada para facilitar o trabalho com itens que devem ser editáveis para o &lt;strong>Administrador do sistema&lt;/strong>.&lt;/p>
 &lt;/div>
