@@ -53,4 +53,18 @@
 &lt;li>&lt;strong>&lt;code>data-edit-button-top&lt;/code>&lt;/strong> - Equivalente à propriedade top do CSS. Deve ser uma valor inteiro. Ex: &lt;code>data-edit-button-top=&amp;quot;15&amp;quot;&lt;/code>&lt;/li>
 &lt;li>&lt;strong>&lt;code>data-edit-button-bottom&lt;/code>&lt;/strong> - Equivalente à propriedade bottom do CSS. Deve ser uma valor inteiro. Ex: &lt;code>data-edit-button-bottom=&amp;quot;15&amp;quot;&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;p>Também é possível utilizar o atributo &lt;code>data-editable-custom-button=&amp;quot;true&amp;quot;&lt;/code> para cancelar o comportamento padrão e tornar possível a implementação de um botão personalizado. Para isso, um botão com a classe &lt;code>button-editable&lt;/code> deve ser colocado dentro deste componente com &lt;code>display: none&lt;/code> no CSS.&lt;/p></description></item></channel></rss>
+&lt;p>Também é possível utilizar o atributo &lt;code>data-editable-custom-button=&amp;quot;true&amp;quot;&lt;/code> para cancelar o comportamento padrão e tornar possível a implementação de um botão personalizado. Para isso, um botão com a classe &lt;code>button-editable&lt;/code> deve ser colocado dentro deste componente com &lt;code>display: none&lt;/code> no CSS.&lt;/p></description></item><item><title>Docs: Telas para edição, inclusão e exclusão de conteúdo - Administrador</title><link>https://vinigama.github.io/pt/docs/conceitos/edicao_exclusao_inclusao_conteudo/</link><pubDate>Mon, 21 Mar 2022 00:00:00 +0000</pubDate><guid>https://vinigama.github.io/pt/docs/conceitos/edicao_exclusao_inclusao_conteudo/</guid><description>
+&lt;div class="pageinfo pageinfo-primary">
+&lt;p>Esta página visa trazer maior clareza sobre a implementação de funções chave da aplicação, referentes aos processos de aceitação de conteúdo postado, aceitação de edição em conteúdo postado e aceitação de exclusão de conteúdo postado.&lt;/p>
+&lt;/div>
+&lt;h1 id="fluxo">Fluxo&lt;/h1>
+&lt;h2 id="inclusão">Inclusão&lt;/h2>
+&lt;p>&lt;img src="https://vinigama.github.io/pt/docs/Conceitos/images/fluxo_inclusao_conteudo.png" alt="">&lt;/p>
+&lt;h2 id="edição">Edição&lt;/h2>
+&lt;p>&lt;img src="https://vinigama.github.io/pt/docs/Conceitos/images/fluxo_edicao_conteudo.png" alt="">&lt;/p>
+&lt;h2 id="exclusão">Exclusão&lt;/h2>
+&lt;p>&lt;img src="https://vinigama.github.io/pt/docs/Conceitos/images/fluxo_exclusao_conteudo.png" alt="">&lt;/p>
+&lt;h1 id="utilização">Utilização&lt;/h1>
+&lt;p>O Model &lt;code>RequisicaoFormulario&lt;/code> é o componente resposável pela administração destas requisições. Por meio do método &lt;code>aceita_requisicao&lt;/code>, é possível permitir que o fluxo ocorra por completo, sendo assim, quando a o método &lt;code>aceita_requisicao&lt;/code> é chamado, o fluxo de aceitação da requisição é seguido.&lt;/p>
+&lt;p>As requisições feitas pelo Aluno Tutor ficam centralizadas no painel de administração do Django. Estas requisições podem ser aceita pela Action personalizada &lt;code>Aceitar solicitação&lt;/code>, ou podem ser visualizadas de maneira mais detalhada ao ativar o botão &lt;code>Verificar solicitação&lt;/code>.&lt;/p>
+&lt;p>O botão &lt;code>Verificar solicitação&lt;/code> leva a uma View responsável pelo roteamento da requisição. Para mais detalhes, verificar a view &lt;code>router_requisicao&lt;/code> presente do Django App &lt;code>requisicoes&lt;/code>.&lt;/p></description></item></channel></rss>
