@@ -11,7 +11,19 @@
 &lt;p>&lt;img src="https://vinigama.github.io/pt/docs/Conceitos/images/fluxo_historico_sinalizacoes_comentarios.png" alt="">&lt;/p>
 &lt;h1 id="utilização">Utilização&lt;/h1>
 &lt;p>O Model &lt;code>SinalizacaoComentario&lt;/code> é o componente resposável pela sinalização de comentário. Quando o usuário sinaliza um comentário o sistema faz uma média ponderada para saber se o comentário sinalizado possui teor negativo ou não, se o comentário possuir uma classificação diferente de positivo é apresentado para o administrador na página de sinalizações de comentários.&lt;/p>
-&lt;p>O Administrador fica responsável de escolher as opções de &lt;strong>remover&lt;/strong> ou de classificar como &lt;strong>ok&lt;/strong>. Se o administrador escolher a opção de &lt;strong>remover&lt;/strong>, o comentário será removido e será gerado uma entrada de histórico no &lt;code>HistoricoSinalizacaoComentario&lt;/code>, caso o administrador escolher a opção &lt;strong>parecer ok&lt;/strong>, apenas a sinalização será removida.&lt;/p></description></item><item><title>Docs: Seção Comentário</title><link>https://vinigama.github.io/pt/docs/conceitos/aba_comentario/</link><pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate><guid>https://vinigama.github.io/pt/docs/conceitos/aba_comentario/</guid><description>
+&lt;p>O Administrador fica responsável de escolher as opções de &lt;strong>remover&lt;/strong> ou de classificar como &lt;strong>ok&lt;/strong>. Se o administrador escolher a opção de &lt;strong>remover&lt;/strong>, o comentário será removido e será gerado uma entrada de histórico no &lt;code>HistoricoSinalizacaoComentario&lt;/code>, caso o administrador escolher a opção &lt;strong>parecer ok&lt;/strong>, apenas a sinalização será removida.&lt;/p></description></item><item><title>Docs: Sinalização de conteúdo - Administrador</title><link>https://vinigama.github.io/pt/docs/sinalizacao_conteudo/</link><pubDate>Tue, 25 Oct 2022 00:00:00 +0000</pubDate><guid>https://vinigama.github.io/pt/docs/sinalizacao_conteudo/</guid><description>
+&lt;div class="pageinfo pageinfo-primary">
+&lt;p>Esta página visa trazer com detalhes a implementação das funcionalidades de sinalizar e apurar conteúdos&lt;/p>
+&lt;/div>
+&lt;h1 id="fluxo">Fluxo&lt;/h1>
+&lt;h2 id="sinalizar-conteúdo">Sinalizar conteúdo&lt;/h2>
+&lt;p>&lt;img src="https://vinigama.github.io/pt/docs/Conceitos/images/fluxo_sinalizacao_conteudo.png" alt="">&lt;/p>
+&lt;h2 id="apuração-da-sinalização">Apuração da sinalização&lt;/h2>
+&lt;p>&lt;img src="https://vinigama.github.io/pt/docs/Conceitos/images/fluxo_apuracao_conteudo.png" alt="">&lt;/p>
+&lt;h2 id="solicitar-edição">Solicitar edição&lt;/h2>
+&lt;p>&lt;img src="https://vinigama.github.io/pt/docs/Conceitos/images/fluxo_sinalizacao_conteudo_edicao.png" alt="">&lt;/p>
+&lt;h2 id="histórico-de-sinalizações">Histórico de sinalizações&lt;/h2>
+&lt;p>&lt;img src="https://vinigama.github.io/pt/docs/Conceitos/images/fluxo_historico_sinalizacoes_conteudos.png" alt="">&lt;/p></description></item><item><title>Docs: Seção Comentário</title><link>https://vinigama.github.io/pt/docs/conceitos/aba_comentario/</link><pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate><guid>https://vinigama.github.io/pt/docs/conceitos/aba_comentario/</guid><description>
 &lt;div class="pageinfo pageinfo-primary">
 &lt;p>A seção &lt;strong>Comentário&lt;/strong> na exibição do conteúdo foi criada para que o criador do conteúdo e os alunos possam utilizar esse meio como uma interação.&lt;/p>
 &lt;/div>
