@@ -26,7 +26,24 @@
 &lt;p>&lt;img src="https://vinigama.github.io/pt/docs/Conceitos/images/fluxo_historico_sinalizacoes_conteudos.png" alt="">&lt;/p>
 &lt;h1 id="utilização">Utilização&lt;/h1>
 &lt;p>O Model &lt;code>SinalizacaoConteudo&lt;/code> é o componente responsável pela sinalização de conteúdo. Quando o usuário faz uma sinalização de conteúdo o sistema faz uma condição para saber se o conteúdo sinalizado possui teor negativo ou não. A condição é realizada através dos percentuais dos dislikes e de sinalizações, se conteúdo possuir um percentual de sinalizações maior que 40 e de dislikes maior que 10, o conteúdo é categorizado como negativo.&lt;/p>
-&lt;p>O Administrador fica responsável de analisar o conteúdo, se for apontado algum tipo de irregularidade na análise administrador, o próprio enviará uma notificação via email falando com detalhes sobre as irregularidades.&lt;/p></description></item><item><title>Docs: Seção Comentário</title><link>https://vinigama.github.io/pt/docs/conceitos/aba_comentario/</link><pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate><guid>https://vinigama.github.io/pt/docs/conceitos/aba_comentario/</guid><description>
+&lt;p>O Administrador fica responsável de analisar o conteúdo, se for apontado algum tipo de irregularidade na análise administrador, o próprio enviará uma notificação via email falando com detalhes sobre as irregularidades.&lt;/p></description></item><item><title>Docs: Sinalização de perfil - Administrador</title><link>https://vinigama.github.io/pt/docs/conceitos/sinalizacao_perfil/</link><pubDate>Thu, 13 Oct 2022 00:00:00 +0000</pubDate><guid>https://vinigama.github.io/pt/docs/conceitos/sinalizacao_perfil/</guid><description>
+&lt;div class="pageinfo pageinfo-primary">
+&lt;p>Esta página visa trazer com detalhes a implementação das funcionalidades de sinalizar e apurar perfil&lt;/p>
+&lt;/div>
+&lt;h1 id="fluxo">Fluxo&lt;/h1>
+&lt;h2 id="sinalizar-perfil">Sinalizar perfil&lt;/h2>
+&lt;p>&lt;img src="https://vinigama.github.io/pt/docs/Conceitos/images/fluxo_sinalizacao_perfil.png" alt="">&lt;/p>
+&lt;h2 id="histórico-de-sinalizações">Histórico de sinalizações&lt;/h2>
+&lt;p>&lt;img src="https://vinigama.github.io/pt/docs/Conceitos/images/fluxo_historico_sinalizacoes_perfis.png" alt="">&lt;/p>
+&lt;h1 id="utilização">Utilização&lt;/h1>
+&lt;p>O Model &lt;code>SinalizacaoPerfil&lt;/code> é o componente responsável pela sinalização de perfil. Quando o usuário sinaliza um perfil o sistema verifica se o perfil possui mais de 10 sinalizações, se sim, a sinalização fica com a classificação negativa, assim, aparecendo para o administrador apurar.&lt;/p>
+&lt;p>O Administrador fica responsável de escolher as seguintes opções para apurar a sinalização:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Excluir:&lt;/strong> deleta o perfil do usuário e também a sinalização&lt;/li>
+&lt;li>&lt;strong>Parece ok:&lt;/strong> deleta apenas a sinalização&lt;/li>
+&lt;li>&lt;strong>Enviar notificação:&lt;/strong> envia notificação com as modificações necessárias para o usuário alterar&lt;/li>
+&lt;li>&lt;strong>Silenciar:&lt;/strong> silencia usuário por 15 ou 30 dias, impedindo dele comentar nos conteúdos&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Seção Comentário</title><link>https://vinigama.github.io/pt/docs/conceitos/aba_comentario/</link><pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate><guid>https://vinigama.github.io/pt/docs/conceitos/aba_comentario/</guid><description>
 &lt;div class="pageinfo pageinfo-primary">
 &lt;p>A seção &lt;strong>Comentário&lt;/strong> na exibição do conteúdo foi criada para que o criador do conteúdo e os alunos possam utilizar esse meio como uma interação.&lt;/p>
 &lt;/div>
