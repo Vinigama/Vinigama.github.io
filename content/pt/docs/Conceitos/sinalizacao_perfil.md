@@ -16,6 +16,10 @@ Esta página visa trazer com detalhes a implementação das funcionalidades de s
 
 ![](/pt/docs/Conceitos/images/fluxo_sinalizacao_perfil.png)
 
+## Perfil notificado
+
+![](/pt/docs/Conceitos/images/fluxo_perfil_notificado.png)
+
 ## Histórico de sinalizações
 
 ![](/pt/docs/Conceitos/images/fluxo_historico_sinalizacoes_perfis.png)
