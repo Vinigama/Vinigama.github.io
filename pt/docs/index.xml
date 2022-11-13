@@ -1,4 +1,59 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IF-Study – Documentação</title><link>https://vinigama.github.io/pt/docs/</link><description>Recent content in Documentação on IF-Study</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://vinigama.github.io/pt/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Sinalização de comentário - Administrador</title><link>https://vinigama.github.io/pt/docs/conceitos/sinalizacao_comentario/</link><pubDate>Tue, 25 Oct 2022 00:00:00 +0000</pubDate><guid>https://vinigama.github.io/pt/docs/conceitos/sinalizacao_comentario/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IF-Study – Documentação</title><link>https://vinigama.github.io/pt/docs/</link><description>Recent content in Documentação on IF-Study</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://vinigama.github.io/pt/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Classificador de comentário</title><link>https://vinigama.github.io/pt/docs/conceitos/classificador_comentario/</link><pubDate>Sun, 13 Nov 2022 00:00:00 +0000</pubDate><guid>https://vinigama.github.io/pt/docs/conceitos/classificador_comentario/</guid><description>
+&lt;div class="pageinfo pageinfo-primary">
+&lt;p>Esta página visa trazer com detalhes a implementação do classificador de comentário.&lt;/p>
+&lt;/div>
+&lt;h1 id="classificador">Classificador&lt;/h1>
+&lt;p>Para medir o sentimento do comentário, foi utilizado as bibliotecas de linguagem de processamento natural e de machine learning. Foi utilizado dois &lt;code>dataframes&lt;/code> que seria de comentários de filmes e de palavrões.&lt;/p>
+&lt;p>Passo a passo de como foi criado o classificador:&lt;/p>
+&lt;ol>
+&lt;li>Leitura dos dois dataframes&lt;/li>
+&lt;li>Junção dos dataframes&lt;/li>
+&lt;li>Importação da biblioteca tagger que verifica as classes das palavras. Ex: substantivo, adjetivo etc&lt;/li>
+&lt;li>Tokenização dos comentários&lt;/li>
+&lt;li>Remoção de ruídos dos comentários e lematização&lt;/li>
+&lt;li>Separação das palavras que tem classificação positiva e negativa&lt;/li>
+&lt;li>Criação do dataframe verificando se o comentário é positivo ou negativo&lt;/li>
+&lt;li>Treinamento do modelo com dataframe&lt;/li>
+&lt;li>Exportação do &lt;code>Naive Bayer&lt;/code> treinado&lt;/li>
+&lt;/ol>
+&lt;h2 id="clasificador-no-projeto">Clasificador no projeto&lt;/h2>
+&lt;p>Na hora que o usuário sinaliza o comentário, o sistema passar pelas seguintes funções antes de atribuir no modelo:&lt;/p>
+&lt;p>&lt;strong>remove_noise&lt;/strong>: remoção de ruídos de comunicação. Exemplo: caracteres especiais.&lt;/p>
+&lt;pre>&lt;code> def remove_noise(self, tokens, stop_words = ()):
+&amp;quot;&amp;quot;&amp;quot; Remoção de ruídos de comunicação &amp;quot;&amp;quot;&amp;quot;
+cleaned_tokens = []
+for token, tag in self.tagger.tag(tokens):
+token = re.sub('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&amp;amp;+#]|[!*\(\),]|'\
+'(?:%[0-9a-fA-F][0-9a-fA-F]))+','', token)
+token = re.sub(&amp;quot;(@[A-Za-z0-9_]+)&amp;quot;,&amp;quot;&amp;quot;, token)
+if tag.startswith(&amp;quot;N&amp;quot;):
+pos = 'n'
+elif tag.startswith('V'):
+pos = 'v'
+else:
+pos = 'a'
+lemmatizer = WordNetLemmatizer()
+token = lemmatizer.lemmatize(token, pos)
+if len(token) &amp;gt; 0 and token not in string.punctuation and token.lower() not in stop_words:
+cleaned_tokens.append(token.lower())
+return cleaned_tokens
+&lt;/code>&lt;/pre>
+&lt;p>&lt;strong>lemmatize_sentence&lt;/strong>: Lematização das palavras. Função para reduzir uma palavra à sua forma base e agrupar diferentes formas da mesma palavra.&lt;/p>
+&lt;pre>&lt;code>def lemmatize_sentence(self, tokens):
+&amp;quot;&amp;quot;&amp;quot; Função para reduzir uma palavra à sua forma base e agrupar diferentes formas da mesma palavra&amp;quot;&amp;quot;&amp;quot;
+lemmatizer = WordNetLemmatizer()
+lemmatized_sentence = []
+for word, tag in self.tagger.tag(tokens):
+if tag.startswith('N'):
+pos = 'n'
+elif tag.startswith('V'):
+pos = 'v'
+else:
+pos = 'a'
+lemmatized_sentence.append(lemmatizer.lemmatize(word, pos))
+return lemmatized_sentence
+&lt;/code>&lt;/pre>
+&lt;p>Após passar pelos dois processos, o comentário é passado como parâmetro para o modelo, onde verifica se o comentário é positivo ou negativo.&lt;/p></description></item><item><title>Docs: Sinalização de comentário - Administrador</title><link>https://vinigama.github.io/pt/docs/conceitos/sinalizacao_comentario/</link><pubDate>Tue, 25 Oct 2022 00:00:00 +0000</pubDate><guid>https://vinigama.github.io/pt/docs/conceitos/sinalizacao_comentario/</guid><description>
 &lt;div class="pageinfo pageinfo-primary">
 &lt;p>Esta página visa trazer com detalhes a implementação das funcionalidades de sinalizar e apurar comentários&lt;/p>
 &lt;/div>
