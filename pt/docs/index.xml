@@ -175,7 +175,33 @@ return lemmatized_sentence
 &lt;li>Digitar &lt;code>&amp;gt;Markdown: Open Preview&lt;/code>, ou utilizar atalho &lt;code>ctrl+shift+V&lt;/code>&lt;/li>
 &lt;li>Resultado:&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://vinigama.github.io/pt/docs/Tutoriais/images/markdown-all-in-one-resultado.jpg" alt="">&lt;/p></description></item><item><title>Docs: Telas para edição, inclusão e exclusão de conteúdo - Administrador</title><link>https://vinigama.github.io/pt/docs/conceitos/edicao_exclusao_inclusao_conteudo/</link><pubDate>Mon, 21 Mar 2022 00:00:00 +0000</pubDate><guid>https://vinigama.github.io/pt/docs/conceitos/edicao_exclusao_inclusao_conteudo/</guid><description>
+&lt;p>&lt;img src="https://vinigama.github.io/pt/docs/Tutoriais/images/markdown-all-in-one-resultado.jpg" alt="">&lt;/p></description></item><item><title>Docs: Histórico de conteúdos visualizados</title><link>https://vinigama.github.io/pt/docs/conceitos/historico_conteudo/</link><pubDate>Mon, 21 Mar 2022 00:00:00 +0000</pubDate><guid>https://vinigama.github.io/pt/docs/conceitos/historico_conteudo/</guid><description>
+&lt;div class="pageinfo pageinfo-primary">
+&lt;p>Esta página visa trazer maior clareza sobre a implementação do histórico de conteúdos visualizados&lt;/p>
+&lt;/div>
+&lt;h1 id="fluxo">Fluxo&lt;/h1>
+&lt;h2 id="histórico">Histórico&lt;/h2>
+&lt;p>&lt;img src="https://vinigama.github.io/pt/docs/Conceitos/images/fluxo_historico_conteudos.png" alt="">&lt;/p>
+&lt;h1 id="utilização">Utilização&lt;/h1>
+&lt;p>Para acessar o histórico dos conteúdos visualizados, basta acessar o menu no canto direito superior e clicar na opção histórico. Após passar por esse processo, será exibido os conteúdos visualizados.&lt;/p>
+&lt;p>Na tela de exibição de conteúdo contém duas funcionalidades, sendo elas:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Search bar:&lt;/strong> campo input para preencher o nome do conteúdo&lt;/li>
+&lt;li>&lt;strong>Limpar histórico:&lt;/strong> botão para limpar o histórico&lt;/li>
+&lt;/ul>
+&lt;h3 id="model">Model&lt;/h3>
+&lt;p>O componente principal do funcionamento do histórico é o model &lt;strong>Historico&lt;/strong>, com ele é possível fazer o relacionamento com o usuário e o conteúdo&lt;/p>
+&lt;pre>&lt;code>`class Historico(models.Model):
+visualizador = models.ManyToManyField(Perfil, related_name=&amp;quot;+&amp;quot;)
+conteudo = models.ForeignKey(
+Conteudo,
+on_delete=models.CASCADE,
+limit_choices_to={&amp;quot;ativo&amp;quot;: True},
+related_name=&amp;quot;+&amp;quot;,
+)
+data = models.DateTimeField(auto_now_add=True)
+def __str__(self):
+return f&amp;quot;{self.conteudo}&amp;quot;`&lt;/code>&lt;/pre></description></item><item><title>Docs: Telas para edição, inclusão e exclusão de conteúdo - Administrador</title><link>https://vinigama.github.io/pt/docs/conceitos/edicao_exclusao_inclusao_conteudo/</link><pubDate>Mon, 21 Mar 2022 00:00:00 +0000</pubDate><guid>https://vinigama.github.io/pt/docs/conceitos/edicao_exclusao_inclusao_conteudo/</guid><description>
 &lt;div class="pageinfo pageinfo-primary">
 &lt;p>Esta página visa trazer maior clareza sobre a implementação de funções chave da aplicação, referentes aos processos de aceitação de conteúdo postado, aceitação de edição em conteúdo postado e aceitação de exclusão de conteúdo postado.&lt;/p>
 &lt;/div>
